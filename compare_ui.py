@@ -2,6 +2,8 @@ import cv2
 
 import numpy as np
 
+print("Running AI UI Validator")
+
 # Define full paths for images
 
 baseline_path = r"C:\Users\SHRTOMAR\OneDrive - Capgemini\Desktop\Python\AI_UI_Validator\saucedemo_baseline.png"
