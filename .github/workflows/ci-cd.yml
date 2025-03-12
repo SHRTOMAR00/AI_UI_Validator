@@ -1,0 +1,30 @@
+name: AI UI Validator CI/CD
+on:
+  push:
+     branches:
+        - main
+  pull_request:
+     branches:
+        - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+         pyhton-version: "3.10"
+      - name: Install Dependencies
+        run: |
+          pip install -r reurirements.txt
+      - name: Run AI UI Validator Tests
+        run: |
+          python compare_ui.py
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: ui-validator-results
+          path: ui_differ.png
